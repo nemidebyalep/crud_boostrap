@@ -1,0 +1,24 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">N°</th>
+        <th scope="col">COMPETENCIA</th>
+        <th scope="col">TIPO COMPETENCIA</th>
+        <th scope="col">lINEA PA</th>
+        <th scope="col">DESCRIPCION</th>
+        <th scope="col">EDITAR</th>
+        <th scope="col">ELIMINAR</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let competencia of competencias; let i=index">
+        <th scope="row">{{i+1}}</th>
+        <td>{{competencia.NOMBRE}}</td>
+        <td>{{competencia.ID_TIPO_INSTRUMENTO}}</td>
+        <td>{{competencia.ID_LINEA_PA}}</td>      
+        <td>{{competencia.DESCRIPCION}}</td>        
+        <td><button type="button" class="btn btn-info" [routerLink]="['/editar', competencia.ID_COMPETENCIAS]"><i class="fa fa-pencil" aria-hidden="true"></i></button></td>
+      <td><button type="button" class="btn btn-danger" (click)="delCompetencia(competencia.ID_COMPETENCIAS)"><i class="fa fa-trash-o" aria-hidden="true"></i></button></td>
+      </tr>     
+    </tbody>
+  </table>
